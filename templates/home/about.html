@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block css %}
+
+<style>
+    
+    img{
+        width: 55px;
+        margin: 4px 10px;
+    }
+    a:hover{
+        color: black!important;
+    }
+
+</style>
+
+{% endblock css %}
+{% block title %} About Page {% endblock title %}
+{% block aboutactive %} active
+{% endblock aboutactive %}
+
+{% block body %}
+
+<div class="container my-4 " style="height: 100vh;">
+    <div class="jumbotron jumbotron-fluid bg-light border border-dark">
+        <div class="container">
+          <h1 class="display-4 text-dark">Hello Everyone!</h1>
+          <p class="lead text-dark">I am a student and a hobbyist developer</p>
+
+          <button type="button" class="btn btn-outline-dark"><a href="/contact" style="text-decoration: none; color: black;"> Contact me Here</a></button>
+
+            <h4 class="text-dark my-3"> My Skills</h4>
+            <div class="images bg-dark p-3 my-2">
+                <img src="/static/img/Python-logo.jpg" alt="">
+                <img src="/static/img/django.png" alt="">
+                <img src="/static/img/cpp.png" alt="">
+                <img src="/static/img/c_69zHy2B.png" alt="">
+                <img src="/static/img/js.jpg" alt="">
+                <img src="/static/img/html.png" alt="">
+                <img src="/static/img/css.png" alt="">
+                <img src="/static/img/dsalgo.png" alt="">
+                <img src="/static/img/node.png" alt="">
+            </div>
+        </div>
+      </div>
+</div>
+
+
+{% endblock body %}

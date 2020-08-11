@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block title %} Create
+{% endblock title %}
+{% block createactive %} active
+{% endblock createactive %}
+{% block body %}
+
+<div class="container my-3">
+{% if user.is_authenticated %}
+<form action="/blog/postBlog" method="post">
+{% csrf_token %}
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Title</label>
+    <input type="text" class="form-control" name="title" id="title" placeholder="Title">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Post</label>
+    <textarea class="form-control" name="content" id="content" rows="15"></textarea>
+  </div>
+  <input type="hidden" name="user" value="{{request.user}}">
+  <button class="btn btn-info" type="submit">Submit</button>
+</form>
+
+</div>
+{% else %}
+<h4 class="my-3">
+Please Login to Post a blog
+</h4>
+
+{% endif %}
+{% endblock body %}
+
+
+{% block js %}
+<script>
+        tinymce.init({
+        selector: '#content',
+        plugins: [
+      'advlist autolink link image lists charmap print preview hr anchor pagebreak',
+      'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+      'table emoticons template paste help'
+    ],
+    toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | ' +
+      'bullist numlist outdent indent | link image | print preview media fullpage | ' +
+      'forecolor backcolor emoticons | help',
+    menu: {
+      favs: {title: 'My Favorites', items: 'code visualaid | searchreplace | emoticons'}
+    },
+    menubar: 'favs file edit view insert format tools table help',
+    content_css: 'css/content.css'
+  });
+</script>
+{% endblock js %}

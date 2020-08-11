@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %} Search {% endblock title %}
+
+{% block homeactive %} active
+{% endblock homeactive %}
+{% block body %}
+
+<div class="container">
+    <h2 class="my-2">Your Search Results are as follows</h2>
+    {% if allPosts|length < 1 %}
+        <div class="result my-4">
+        <h5>Your Search Query - {{query | truncatechars:100}} did not match any documents</h5>
+        <h4>Suggestions: </h4>
+        <ul>
+        <li><h6>Try Using Some Other Keyword</h6></li>
+        <li><h6>Make sure that all words are spelled correctly.</h6></li>
+        <li><h6>Try different keywords.</h6></li>
+        <li><h6>Try more general keywords.</h6></li>
+        </ul>
+        </div>
+    {% endif %}
+    {% for post in allPosts %}
+    <div class="row no-gutters border rounded overflow-hidden flex-md-row my-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary">{{post.author}}</strong>
+          <h3 class="mb-0">{{post.title}}</h3>
+          <div class="mb-1 text-muted">{{post.timeStamp}}</div>
+          <p class="card-text mb-auto">{{post.content | truncatechars:100}}</p>
+          <a href="/blog/{{post.slug}}" class="stretched-link">Continue reading</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+        </div>
+      </div>
+      {% endfor %}
+</div>
+{% endblock body %}
