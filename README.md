@@ -1,3 +1,2 @@
-#This is the place where you will find the entire code for the website Code Bloggers
-
-###Happy Blogging !!
+This is the place where you will find the entire code for the Webiste Code Bloggers 
+Happy Blogging !!
